@@ -1,0 +1,26 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block  extrastyle %}
+      <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+{% endblock  %}
+
+
+
+<!-- admin.js -->
+
+{% block branding %}
+    <img src="{% static 'images/home/logo.png' %}" alt="" />
+{% endblock  %}
+
+<!-- {% block shifted %}
+    <div class="container" id="myId">
+        <div class="row">
+            <h1>TEST</h1>
+        </div>
+    </div>
+{% endblock  %} -->
+
+{% block scripts %}
+    <script src="{% static 'js/admin.js' %}"></script>
+{% endblock %}
+
