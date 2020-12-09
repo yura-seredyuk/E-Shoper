@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include "../layouts/_slider.html" %}
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 padding-right">
+                <section id="form"><!--form-->
+                    <div class="login-form"><!--login form-->
+                        <h2>Login to your account</h2>
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <input type="text" placeholder="Username" name="username" />
+                            <input type="password" placeholder="Password" name="password" />
+                            <span>
+                                <input type="checkbox" class="checkbox"> 
+                                Keep me signed in
+                            </span>
+                            <button type="submit" class="btn btn-default">Login</button>
+                        </form>
+                    </div><!--/login form-->
+                </section><!--/form-->
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock  %}
