@@ -84,5 +84,9 @@ def dashboard(request):
     return render(request, "pages/dashboard.html")
 
 
+def cart(request):
+    return render(request, "pages/cart.html")
+
+
 def not_found(request):
     return render(request, 'pages/404.html')

@@ -66,9 +66,7 @@
                         <ul class="nav navbar-nav">
                             {% if user.is_authenticated %}
                                 <li><a class="offset-2 col-4 align-self-center enter" href="{% url 'dashboard' %}">Welcome, {{ user.username }}</a></li>
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+                                <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i> Cart</a></li>
                                 <li><a class="col-1 align-self-center" href="javascript:{document.getElementById('logout').submit()}" > Exit</a></li>
                                 <form action="{% url 'logout' %}" id="logout" method="POST">
                                     {% csrf_token %}

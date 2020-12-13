@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from product.models import Product
-from .models import Product
 
 
 def cart(request):
@@ -11,7 +10,7 @@ def cart(request):
 
 
 def cart_by_id(request, product_id):
-    product = get_object_or_404(Product, pk=product_id)
+    product = get_object_or_404(Products, pk=product_id)
     context = {
         "product": product,
     }
