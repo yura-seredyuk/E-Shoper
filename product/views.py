@@ -1,18 +1,20 @@
 from django.shortcuts import render, get_object_or_404
-from product.models import Product
 from .models import Product
 
 
-def cart(request):
+def cart2(request):
+    print("cart ", cart)
     context = {
 
     }
     return render(request, "pages/cart.html", context)
 
 
-def cart_by_id(request, product_id):
+def cart(request, product_id):
+    print("product_id ", product_id)
     product = get_object_or_404(Product, pk=product_id)
+    print(product)
     context = {
-        "product": product,
+        "products": product,
     }
     return render(request, "pages/cart.html", context)

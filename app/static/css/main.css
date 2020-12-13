@@ -2530,3 +2530,8 @@ textarea {
   width: 400px;
   margin: 0 auto;
 }
+
+.cart_product img {
+  width: 60px;
+  height: auto;
+}
