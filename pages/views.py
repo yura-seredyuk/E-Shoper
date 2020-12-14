@@ -31,7 +31,8 @@ def login(request):
             messages.success(request, 'User logged in')
             messages.error(request, 'error test')
             messages.warning(request, 'warning test')
-
+            request.session.set_expiry(60000)
+            request.session['cart_list'] = []
             return redirect('dashboard')
         else:
             messages.error(request, 'Incorrect login or password')
@@ -43,6 +44,7 @@ def login(request):
 def logout(request):
     if request.method == "POST":
         auth.logout(request)
+        request.session.clear()
         messages.success(request, "Logged out")
     return redirect('index')
 
