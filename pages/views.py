@@ -4,6 +4,8 @@ from product.models import Product
 from django.contrib.auth.models import User
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from orders.models import Orders
 
 
 def index(request):
@@ -18,7 +20,7 @@ def index(request):
 
 
 def contacts(request):
-    return render(request, 'pages/contacts.html')
+    return render(request, 'pages/contact.html')
 
 
 def login(request):
@@ -31,8 +33,7 @@ def login(request):
             messages.success(request, 'User logged in')
             messages.error(request, 'error test')
             messages.warning(request, 'warning test')
-            request.session.set_expiry(60000)
-            request.session['cart_list'] = []
+
             return redirect('dashboard')
         else:
             messages.error(request, 'Incorrect login or password')
@@ -44,7 +45,6 @@ def login(request):
 def logout(request):
     if request.method == "POST":
         auth.logout(request)
-        request.session.clear()
         messages.success(request, "Logged out")
     return redirect('index')
 
@@ -90,5 +90,5 @@ def cart(request):
     return render(request, "pages/cart.html")
 
 
-def not_found(request):
+def page_not_found(request):
     return render(request, 'pages/404.html')

@@ -9,10 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+from django.contrib.messages import constants as messages
 from pathlib import Path
 import os
-
+CART_SESSION_ID = 'cart'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'pages',
     'product',
     'django_seed',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,4 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = '/media/'
+X_FRAME_OPTIONS = 'SAMEORIGIN'
