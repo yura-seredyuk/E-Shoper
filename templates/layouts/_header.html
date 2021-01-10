@@ -124,7 +124,7 @@
                                     <li><a href="blog-single.html">Blog Single</a></li>
                                 </ul>
                             </li>
-                            <li><a href="404.html">404</a></li>
+                            <li><a href="{% url 'page_not_found' %}">404</a></li>
                             <li
                                     {% if 'contacts' == request.path %}
                                     class="active"
